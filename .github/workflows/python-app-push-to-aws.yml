@@ -99,7 +99,7 @@ jobs:
           --format pypi \
           --package file-encoder \
           --versions 0.1.0 \
-          --region us-west-2 || true
+          --region us-east-2 || true
 
         # Upload the package
         twine upload --repository-url $CODEARTIFACT_REPOSITORY_URL \
