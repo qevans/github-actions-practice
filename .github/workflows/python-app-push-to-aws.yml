@@ -62,7 +62,7 @@ jobs:
       run: |
         for file in dist/*.whl; do
           if [ -f "$file" ]; then
-            aws s3 cp "$file" s3://git-py-awss3/wheels/
+            aws s3 cp "$file" s3://${{ secrets.AWS_S3_BUCKET }}/wheels/
           fi
         done
 
