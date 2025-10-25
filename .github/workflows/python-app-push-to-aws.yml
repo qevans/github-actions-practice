@@ -62,7 +62,7 @@ jobs:
       run: |
         for file in dist/*.whl; do
           if [ -f "$file" ]; then
-            aws s3 cp "$file" s3://${{ secrets.AWS_S3_BUCKET }}/test/
+            aws s3 cp "$file" s3://${{ secrets.AWS_S3_BUCKET }}/wheels/
           fi
         done
 
@@ -94,7 +94,7 @@ jobs:
       run: |
         # Delete existing package (ignore if it doesn't exist)
         aws codeartifact delete-package-versions \
-          --domain test \
+          --domain wheels \ 
           --repository pypi \
           --format pypi \
           --package file-encoder \
@@ -106,4 +106,3 @@ jobs:
           --username aws \
           --password $CODEARTIFACT_AUTH_TOKEN \
           dist/*.whl
-          
