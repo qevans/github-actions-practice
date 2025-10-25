@@ -106,4 +106,3 @@ jobs:
           --username aws \
           --password $CODEARTIFACT_AUTH_TOKEN \
           dist/*.whl
-
